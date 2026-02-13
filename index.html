@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Estações de Trabalho - AgileConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <img src="logoagileconnect.png" alt="AgileConnect Logo" class="logo">
+        <h1>Gerenciador de Estações de Trabalho</h1>
+    </header>
+
+    <main class="container-body">
+        <h3>Novo Cadastro</h3>
+        <section class="grid-form" id="formulario">
+            <input type="text" id="estacao" placeholder="Estação" required>
+            <input type="text" id="serie" placeholder="Nº de Série" required>
+            <input type="text" id="marca" placeholder="Marca" required>
+            <input type="text" id="modelo" placeholder="Modelo" required>
+            <input type="text" id="usuario" placeholder="Usuário" required>
+            <input type="text" id="empresa" placeholder="Empresa" required>
+            <input type="text" id="setor" placeholder="Setor" required>
+            <select id="status">
+                <option value="Em Uso">Em Uso</option>
+                <option value="Estoque">Estoque</option>
+            </select>
+            <button class="btn-add" onclick="adicionarItem()">Cadastrar</button>
+        </section>
+
+        <section class="dashboard">
+            <div>Total de Ativos: <span id="totalCount" class="counter-badge">0</span></div>
+            <input type="text" id="filtroGeral" onkeyup="filtrarTabela()" placeholder="Pesquisar...">
+        </section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Estação</th>
+                    <th>Série</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Usuário</th>
+                    <th>Empresa</th>
+                    <th>Setor</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="listaEstoque">
+                </tbody>
+        </table>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
