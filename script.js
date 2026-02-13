@@ -1,4 +1,4 @@
-const camposIds = ['estacao', 'serie', 'marca', 'modelo', 'usuario', 'empresa', 'setor'];
+const camposIds = ['estacao', 'serie', 'fabricante', 'modelo', 'usuario', 'empresa', 'setor'];
 
 function adicionarItem() {
     const dados = {};
@@ -35,7 +35,7 @@ function renderizarLinha(linha, dados) {
     linha.innerHTML = `
         <td>${dados.estacao}</td>
         <td>${dados.serie}</td>
-        <td>${dados.marca}</td>
+        <td>${dados.fabricante}</td>
         <td>${dados.modelo}</td>
         <td>${dados.usuario}</td>
         <td>${dados.empresa}</td>
@@ -86,7 +86,7 @@ function salvarEdicao(botao) {
     const novosDados = {
         estacao: inputs[0].value,
         serie: inputs[1].value,
-        marca: inputs[2].value,
+        fabricante: inputs[2].value,
         modelo: inputs[3].value,
         usuario: inputs[4].value,
         empresa: inputs[5].value,
