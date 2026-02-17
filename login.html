@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AgileConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f1f5f9;
+        }
+        .login-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-card img {
+            max-height: 50px;
+            margin-bottom: 30px;
+        }
+        .login-card h2 {
+            margin-bottom: 25px;
+            color: var(--text);
+            font-size: 1.25rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+        .btn-login {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .btn-login:hover {
+            background: #1d4ed8;
+        }
+        .footer-link {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <img src="logoagileconnect.png" alt="AgileConnect Logo">
+        <h2>Acesse sua conta</h2>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">E-mail ou Usuário</label>
+                <input type="text" id="email" placeholder="Digite seu acesso" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar no Sistema</button>
+        </form>
+
+        <div class="footer-link">
+            &copy; 2026 AgileConnect - Gestão de Ativos
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
