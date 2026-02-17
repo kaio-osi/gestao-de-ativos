@@ -3,55 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de Estações de Trabalho - AgileConnect</title>
+    <title>Gerenciador de Estações - AgileConnect</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 
     <header class="header">
         <img src="logoagileconnect.png" alt="AgileConnect Logo" class="logo">
-        <h1>Gerenciador de Estações de Trabalho</h1>
     </header>
 
-    <main class="container-body">
-        <h3>Novo Cadastro</h3>
-        <section class="grid-form" id="formulario">
-            <input type="text" id="estacao" placeholder="Estação" required>
-            <input type="text" id="serie" placeholder="Nº de Série" required>
-            <input type="text" id="fabricante" placeholder="Fabricante" required>
-            <input type="text" id="modelo" placeholder="Modelo" required>
-            <input type="text" id="usuario" placeholder="Usuário" required>
-            <input type="text" id="empresa" placeholder="Empresa" required>
-            <input type="text" id="setor" placeholder="Setor" required>
-            <select id="status">
-                <option value="Em Uso">Em Uso</option>
-                <option value="Estoque">Estoque</option>
-            </select>
-            <button class="btn-add" onclick="adicionarItem()">Cadastrar</button>
+    <main class="main-content">
+        <section class="card-section">
+            <h3>Novo Cadastro</h3>
+            <div class="grid-form" id="formulario">
+                <input type="text" id="estacao" placeholder="Estação">
+                <input type="text" id="serie" placeholder="Nº de Série">
+                <input type="text" id="fabricante" placeholder="Fabricante">
+                <input type="text" id="modelo" placeholder="Modelo">
+                <input type="text" id="usuario" placeholder="Usuário">
+                
+                <select id="empresa">
+                    <option value="" disabled selected>Selecione a Empresa</option>
+                    <option value="Agile Assistência">Agile Assistência</option>
+                    <option value="Agile Connect">Agile Connect</option>
+                    <option value="Antena Centro Automotivo">Antena Centro Automotivo</option>
+                    <option value="Antena Tecnologia">Antena Tecnologia</option>
+                    <option value="Coonecta">Coonecta</option>
+                    <option value="Global Group">Global Group</option>
+                </select>
+
+                <input type="text" id="setor" placeholder="Setor">
+                
+                <select id="status">
+                    <option value="Em Uso">Em Uso</option>
+                    <option value="Estoque">Estoque</option>
+                </select>
+                
+                <div class="file-group">
+                    <label for="termo" class="btn-upload-label" id="label-termo">Selecionar Termo</label>
+                    <input type="file" id="termo" onchange="atualizarNomeArquivo(this)">
+                </div>
+
+                <button class="btn-add" onclick="adicionarItem()">Cadastrar Estação</button>
+            </div>
         </section>
 
-        <section class="dashboard">
-            <div>Total de Ativos: <span id="totalCount" class="counter-badge">0</span></div>
-            <input type="text" id="filtroGeral" onkeyup="filtrarTabela()" placeholder="Pesquisar...">
-        </section>
+        <section class="card-section">
+            <div class="dashboard">
+                <div class="stats-group">
+                    <div class="badge-ativos">
+                        ATIVOS <span id="totalCount">0</span>
+                    </div>
+                    <button class="btn-export" onclick="exportarExcel()">Exportar para Planilha</button>
+                </div>
+                <input type="text" id="filtroGeral" onkeyup="filtrarTabela()" placeholder="Pesquisar: Estações, usuários, empresas...">
+            </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Estação</th>
-                    <th>Série</th>
-                    <th>Fabricante</th>
-                    <th>Modelo</th>
-                    <th>Usuário</th>
-                    <th>Empresa</th>
-                    <th>Setor</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="listaEstoque">
-                </tbody>
-        </table>
+            <div class="table-container">
+                <table id="tabelaDados">
+                    <thead>
+                        <tr>
+                            <th>Estação</th>
+                            <th>Nº de Série</th>
+                            <th>Fabricante</th>
+                            <th>Modelo</th>
+                            <th>Usuário</th>
+                            <th>Empresa</th>
+                            <th>Setor</th>
+                            <th>Status</th>
+                            <th>Termo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaEstoque"></tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
