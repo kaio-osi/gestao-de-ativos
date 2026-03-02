@@ -3,22 +3,21 @@ const cors = require('cors');
 const path = require('path'); 
 const session = require('express-session');
 
-// 1. IMPORTAR OS ROUTES E CONTROLLERS
+// IMPORTAR OS ROUTES E CONTROLLERS
 const EstoqueRoutes = require('./Routes/EstoqueRoutes');
 const authController = require('./Controller/AuthController'); 
 
 const app = express();
 
-// 2. CONFIGURAR MIDDLEWARES BÁSICOS
+// CONFIGURAR MIDDLEWARES BÁSICOS
 app.use(cors());
 app.use(express.json());
 
-// 3. CONFIGURAÇÃO DA SESSÃO
 app.use(session({
     secret: 'agileconnect-secret-key',
     resave: false,
     saveUninitialized: false, 
-    cookie: { maxAge: 20 * 60 * 1000 } 
+    cookie: { maxAge: 20 * 60 * 1000 }  // 20 MINUTOS
 }));
 
 const verificarSessao = (req, res, next) => {

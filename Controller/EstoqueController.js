@@ -22,7 +22,7 @@ exports.cadastrar = async (req, res) => {
 
 exports.atualizar = async (req, res) => {
     try {
-        const { id } = req.params; // O ID vem da URL (ex: /api/estacoes/10)
+        const { id } = req.params; 
         const atualizada = await Estacao.atualizar(id, req.body);
         res.status(200).json(atualizada);
     } catch (err) {

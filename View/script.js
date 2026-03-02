@@ -125,20 +125,18 @@ async function salvarEdicao(botao) {
     
     let temErro = false;
     const novosDados = {};
-    // Adicionamos 'termo' na lista de chaves (é o 9º input)
     const chaves = ['estacao', 'serie', 'fabricante', 'modelo', 'usuario', 'empresa', 'setor', 'status', 'termo'];
 
     inputs.forEach((input, index) => {
         const valor = input.value.trim();
         
-        // Validamos apenas os 8 primeiros (termo pode ser vazio/opcional)
         if (valor === "" && index < 8) {
             input.style.border = "2px solid red";
             temErro = true;
         } else {
             input.style.border = "1px solid #ccc";
             if (chaves[index]) {
-                // Se o termo estiver vazio, salvamos como "---"
+
                 novosDados[chaves[index]] = (index === 8 && valor === "") ? "---" : valor;
             }
         }
@@ -175,7 +173,7 @@ function cancelarEdicao(botao, dadosOriginais) {
 
 async function excluirLinha(botao) {
     const linha = botao.closest('tr');
-    const id = linha.getAttribute('data-id'); // Padronizado com o setAttribute
+    const id = linha.getAttribute('data-id');
 
     if (!id) return alert("ID não encontrado para exclusão.");
 
@@ -211,7 +209,6 @@ function limparCampos() {
             el.style.borderLeft = "1px solid var(--border)";
         }
     });
-    // Corrigido para o ID que está no seu HTML
     const linkInput = document.getElementById('termo-link');
     if(linkInput) linkInput.value = '';
 }
