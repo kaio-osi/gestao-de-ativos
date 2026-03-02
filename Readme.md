@@ -32,6 +32,7 @@ express-session: Motor para gerenciamento de sessões persistentes.
 cors: Mecanismo para definição de políticas de segurança em requisições de origens cruzadas.
 
 # Para realizar a instalação:
-* npm install express ldapjs express-session cors *
+
+*npm install express ldapjs express-session cors*
 
 O fluxo inicia com a tentativa de conexão (bind) no AD. Uma vez estabelecida a autenticidade, o servidor autoriza a entrega dos recursos estáticos e libera as operações de CRUD no banco de dados. Este modelo elimina redundância de senhas e garante que o acesso ao inventário siga as mesmas políticas de segurança da rede corporativa.
