@@ -48,7 +48,7 @@ async function adicionarItem() {
 }
 
 function renderizarLinha(linha, dados) {
-    const id = dados.EstacaoID || dados.id;
+    const id = dados.AtivoID || dados.id;
     linha.setAttribute('data-id', id);
 
     const linkTermo = dados.Termo || dados.termo || "---";

@@ -37,8 +37,8 @@ class Estacao {
         return { id, ...dados };
     }
 
-    static async excluir(EstacaoID) {
-        const [result] = await db.execute('CALL sp_ExcluirEstacao(?)', [EstacaoID]);
+    static async excluir(AtivoID) {
+        const [result] = await db.execute('CALL sp_ExcluirEstacao(?)', [AtivoID]);
         return true; 
     }
 }
