@@ -4,6 +4,20 @@ Instale o Node aqui: https://nodejs.org/pt-br
 
 Instale o MySql aqui: https://www.mysql.com/downloads/
 
+Documentações:
+
+Express.js
+https://expressjs.com/
+
+ldapjs
+https://github.com/ldapjs/node-ldapjs
+
+express-session
+https://github.com/expressjs/session
+
+CORS (middleware para Express)
+https://github.com/expressjs/cors
+
 A aplicação utiliza o ambiente de execução Node.js e o framework Express para a construção de uma API robusta. O sistema adota o padrão MVC (Model-View-Controller), estruturado da seguinte forma:
 
 View: Interface SPA (Single Page Application) construída com tecnologias web padrão (HTML5, CSS3, JS), que consome a API de forma assíncrona via Fetch API.
